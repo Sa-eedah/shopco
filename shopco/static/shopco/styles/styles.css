@@ -358,7 +358,6 @@
 .section-three .price s {
     color: var(--color-grey);
 }
-
 .section-three .sale {
     color: red;
     font-weight: 600;
@@ -2197,4 +2196,763 @@ span.red {
     .product-image-container {
         height: 12rem;
     }
+}
+
+/* ===== ITEMS PAGE ===== */
+.items-page {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 1rem;
+    background-color: #f5f5f5; /* light grey background */
+    padding: 20px;
+    color: #000; /* black text overall */
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid #ccc;
+}
+
+.sidebar form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Input field */
+.sidebar input[type="text"] {
+    padding: 10px;
+    border: 1px solid #999;
+    border-radius: 6px;
+    color: #000;
+    background-color: #f9f9f9;
+}
+
+.sidebar input::placeholder {
+    color: #777; /* grey placeholders */
+}
+
+/* Search button */
+.search-btn {
+    background-color: #000;
+    color: #fff;
+    font-weight: 600;
+    padding: 8px 0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Horizontal rule */
+.sidebar hr {
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+/* Section titles */
+.section-title {
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+/* Category list */
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.category-item {
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.category-item a {
+    text-decoration: none;
+    color: #000;
+}
+
+.category-item.active {
+    background-color: #e0e0e0; /* grey highlight */
+}
+
+/* Clear button */
+.clear-btn {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* ===== ITEMS GRID ===== */
+.items-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    align-items: start;
+}
+
+/* Item card */
+.item-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+.item-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.item-info {
+    padding: 12px;
+    background-color: #fff;
+}
+
+.item-info h2 {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+    color: #000;
+}
+
+.item-info p {
+    color: #555; /* subtle grey for price */
+}
+
+/* ===== RESPONSIVE =====  */
+ @media (max-width: 768px) {
+    .items-page {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        margin-bottom: 1rem;
+    }
+} 
+
+
+/* form.html styling */
+/* ===== FORM PAGE ===== */
+
+/* Title */
+.form-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+/* Form Container */
+.custom-form {
+    width: 50%;
+    background-color: #f5f5f5;
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    color: #000;
+}
+
+/* Fields */
+.form-fields p {
+    margin-bottom: 1rem;
+}
+
+.form-fields label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: #000;
+}
+
+/* Inputs, Textareas, and Selects */
+.custom-form input[type="text"],
+.custom-form input[type="email"],
+.custom-form input[type="password"],
+.custom-form input[type="number"],
+.custom-form input[type="file"],
+.custom-form textarea,
+.custom-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #999;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #000;
+    font-size: 1rem;
+}
+
+/* Placeholder text */
+.custom-form input::placeholder,
+.custom-form textarea::placeholder {
+    color: #777;
+}
+
+/* Error box */
+.form-errors {
+    background-color: #e0e0e0;
+    color: #000;
+    border-left: 4px solid #000;
+    padding: 12px;
+    margin-top: 1rem;
+    border-radius: 6px;
+}
+
+/* Submit Button */
+.submit-btn {
+    background-color: #000;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+/* Button stays black (no hover color change) */
+.submit-btn:hover {
+    background-color: #000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .custom-form {
+        width: 90%;
+    }
+}
+
+/* detail.html styling */
+/* ===== DETAIL PAGE ===== */
+
+/* Overall container */
+.detail-container {
+    padding: 2rem;
+    background-color: #f5f5f5;
+    color: #000;
+}
+
+/* Layout */
+.detail-main {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+/* Image Section */
+.detail-image img {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Info Section */
+.detail-info {
+    background-color: #e9e9e9;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.detail-info h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 1rem;
+}
+
+.detail-info p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 0.8rem;
+}
+
+/* Description */
+.description strong {
+    color: #555;
+}
+
+/* Owner Section */
+.owner-section {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    border-radius: 10px;
+}
+
+.owner-section p {
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+    margin-right: 10px;
+}
+
+/* Button Variants */
+.edit-btn {
+    background-color: #333;
+}
+
+.delete-btn {
+    background-color: #555;
+}
+
+.contact-btn {
+    background-color: #000;
+}
+
+/* No hover color changes (keeps it clean) */
+.btn:hover {
+    background-color: #000;
+}
+
+/* Related Section */
+.related-section {
+    background-color: #e9e9e9;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-radius: 10px;
+}
+
+.related-section h2 {
+    text-align: left;
+    color: #000;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Related Items Grid */
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+/* Related Item */
+.related-item {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.related-item:hover {
+    transform: translateY(-3px);
+}
+
+.related-image img {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+
+.related-info {
+    padding: 1rem;
+}
+
+.related-info h3 {
+    color: #000;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.related-info p {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Index.html for dashboard */
+/* ===== DASHBOARD PAGE ===== */
+
+/* Overall container */
+.dashboard-container {
+    padding: 2rem;
+    background-color: #f5f5f5;
+    color: #000;
+}
+
+/* Each section (My Items / Categories) */
+.dashboard-section {
+    background-color: #e9e9e9;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+/* Section headings */
+.dashboard-section h2 {
+    font-size: 1.8rem;
+    color: #000;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+/* ===== GRID LAYOUTS ===== */
+.item-grid,
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+/* ===== ITEM CARD ===== */
+.item-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.item-card:hover {
+    transform: translateY(-3px);
+}
+
+.item-image img {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+
+.item-info {
+    padding: 1rem;
+}
+
+.item-info h3 {
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.item-info p {
+    color: #555;
+    font-size: 1rem;
+}
+
+/* ===== CATEGORY CARD ===== */
+.category-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-3px);
+}
+
+.category-info {
+    padding: 1rem;
+    text-align: left;
+}
+
+.category-info h3 {
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.category-info p {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+
+/* New Converstaion page */
+/* ===== NEW CONVERSATION PAGE ===== */
+
+/* Page Container */
+.conversation-container {
+    background-color: #f5f5f5;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 3rem auto;
+    color: #000;
+    font-family: Arial, sans-serif;
+}
+
+/* Page Title */
+.conversation-container h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+/* Form Fields */
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-fields p {
+    margin: 0;
+}
+
+/* Labels and Inputs */
+form label {
+    color: #000;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    display: block;
+}
+
+form input[type="text"],
+form textarea,
+form select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #000;
+    font-size: 1rem;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+    color: #777; /* grey placeholders */
+}
+
+/* Error Box */
+.error-box {
+    background-color: #eee;
+    color: #b91c1c;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+/* Send Button */
+.send-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    display: inline-block;
+    text-align: left;
+}
+
+/* No hover color change */
+.send-btn:hover {
+    background-color: #000;
+}
+
+/* ===== CONVERSATION INBOX PAGE ===== */
+
+/* Page Container */
+.inbox-container {
+    background-color: #f5f5f5;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 3rem auto;
+    font-family: Arial, sans-serif;
+    color: #000;
+}
+
+/* Page Title */
+.inbox-container h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000;
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+/* Conversation List */
+.inbox-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Each Conversation */
+.inbox-item-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.inbox-item {
+    display: flex;
+    align-items: center;
+    background-color: #e5e5e5;
+    padding: 1rem;
+    border-radius: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.inbox-item:hover {
+    background-color: #d4d4d4; /* subtle grey hover */
+}
+
+/* Image Section */
+.inbox-item-image {
+    margin-right: 1rem;
+}
+
+.inbox-item-image img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Text Details */
+.inbox-item-details {
+    flex: 1;
+}
+
+.inbox-member {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 0.3rem;
+}
+
+.inbox-date {
+    color: #555;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+.inbox-item-name {
+    color: #333;
+    font-size: 1rem;
+    margin-top: 0.2rem;
+}
+
+
+/* ===== CONVERSATION DETAIL PAGE ===== */
+
+/* Container */
+.conversation-container {
+    background-color: #f5f5f5;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 3rem auto;
+    font-family: Arial, sans-serif;
+    color: #000;
+}
+
+/* Title */
+.conversation-container h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+/* Message List */
+.message-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Each Message */
+.message {
+    padding: 1rem;
+    border-radius: 10px;
+    max-width: 75%;
+}
+
+/* Sent vs Received Messages */
+.message-sent {
+    background-color: #d1d1d1; /* darker grey for user */
+    align-self: flex-end;
+}
+
+.message-received {
+    background-color: #e8e8e8; /* lighter grey for others */
+    align-self: flex-start;
+}
+
+/* Message Content */
+.message-meta {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.message-meta strong {
+    color: #000;
+}
+
+.message-date {
+    color: #555;
+    font-weight: normal;
+}
+
+.message-text {
+    color: #000;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Message Form */
+.message-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.message-form input[type="text"],
+.message-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #000;
+    font-size: 1rem;
+}
+
+.send-btn {
+    padding: 0.8rem 1.5rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.send-btn:hover {
+    background-color: #000; /* subtle dark hover */
 }
