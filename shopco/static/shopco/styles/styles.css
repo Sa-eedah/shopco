@@ -1842,7 +1842,7 @@ span.red {
 /* Items Page Styles */
 
 .items-container {
-    max-width: 1400px;
+    max-width: 950px;
     margin: 0 auto;
     padding: 2rem 1.5rem;
 }
@@ -2956,3 +2956,6 @@ form textarea::placeholder {
 .send-btn:hover {
     background-color: #000; /* subtle dark hover */
 }
+
+
+
