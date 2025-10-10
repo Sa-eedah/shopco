@@ -109,13 +109,13 @@
 </section>
 
 <!-- CATEGORIES -->
-<section class="mt-12 px-6 py-12 bg-gray-100 rounded-xl">
-    <h2 class="text-2xl text-center mb-6">Categories</h2>
-    <div class="grid grid-cols-3 gap-4">
+<section class="section-two container-two">
+    <h2>Categories</h2>
+    <div class="products-section">
         {% for category in categories %}
-        <div class="p-4 bg-white rounded-xl shadow text-center">
+        <div>
             <a href="#">
-                <h2 class="text-lg font-bold">{{ category.name }}</h2>
+                <p>{{ category.name }}</p>
                 <p class="text-gray-500">{{ category.items.count }} items</p>
             </a>
         </div>

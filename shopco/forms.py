@@ -10,7 +10,7 @@ class LoginForm(AuthenticationForm):
     # Username field with custom styling
     username = forms.CharField(widget=forms.TextInput (attrs={
         'placeholder':'Your username', # Hint text shown in the field
-        'class': 'w-full py-4 px-6 rounded-xl', # Tailwind CSS classes for styling
+        'class': 'w-full py-4 px-6 rounded-xl',
     }))
      # Password field with custom styling and placeholder text
     password = forms.CharField(widget=forms.PasswordInput(attrs={
