@@ -8,7 +8,7 @@
 <section class="section-one container-two">
     <div class="leftside-one">
         <div class="heading-section">
-            <h1>FIND CLOTHES THAT MATCH YOUR STYLE</h1>
+            <h1>FIND CLOTHES THAT MATCHES YOUR STYLE</h1>
             <p>Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</p>
             <div class="shop-now">
                 <button class="shopnow"><a href="{% url 'item:items' %}">Shop Now</a></button>
@@ -68,6 +68,11 @@
                         <span class="sale">-{{ item.discount_percentage }}%</span>
                         {% endif %}
                     </p>
+                     {% comment %} <!-- Add to Cart Button -->
+        <form method="POST" action="{% url 'cart:add_to_cart' item.id %}">
+            {% csrf_token %}
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </form> {% endcomment %}
                 </div>
             </a>
         </div>
@@ -94,10 +99,14 @@
                         ${{ item.price }}
                         {% if item.discount_price %}
                         <s>${{ item.original_price }}</s>
-                        {% comment %} <span class="sale">-20&#37;</span> {% endcomment %}
                         <span class="sale">-{{ item.discount_percentage }}%</span>
                         {% endif %}
                     </p>
+
+                    {% comment %} <form method="POST" action="{% url 'cart:add_to_cart' item.id %}">
+                        {% csrf_token %}
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </form> {% endcomment %}
                 </div>
             </a>
         </div>
@@ -127,22 +136,22 @@
     <h2>BROWSE BY DRESS STYLE</h2>
     <div class="flex">
         <div class="casual">
-            <a href="#"><img src="{% static 'shopco/images/casual.png' %}" alt="Casual"></a>
+            <a href="{% url 'item:items' %}"><img src="{% static 'shopco/images/casual.png' %}" alt="Casual"></a>
             <div class="centered">Casual</div>
         </div>
 
         <div class="formal">
-            <a href="#"><img src="{% static 'shopco/images/formal.png' %}" alt="Formal"></a>
+            <a href="{% url 'item:items' %}"><img src="{% static 'shopco/images/formal.png' %}" alt="Formal"></a>
             <div class="centered">Formal</div>
         </div>
 
         <div class="party">
-            <a href="#"><img src="{% static 'shopco/images/party.png' %}" alt="Party"></a>
+            <a href="{% url 'item:items' %}"><img src="{% static 'shopco/images/party.png' %}" alt="Party"></a>
             <div class="center">Party</div>
         </div>
 
         <div class="gym">
-            <a href="#"><img src="{% static 'shopco/images/gym.png' %}" alt="Gym"></a>
+            <a href="{% url 'item:items' %}"><img src="{% static 'shopco/images/gym.png' %}" alt="Gym"></a>
             <div class="centerone">Gym</div>
         </div>
     </div>

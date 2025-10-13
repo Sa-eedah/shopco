@@ -51,3 +51,7 @@
 </div>
 
 {% endblock %}
+{% comment %} <form method="POST" action="{% url 'cart:add_to_cart' item.id %}">
+                        {% csrf_token %}
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </form> {% endcomment %}

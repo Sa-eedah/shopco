@@ -31,6 +31,7 @@ from django.urls import path, include
 urlpatterns = [
     # Include all URLs from the 'shopco' app (homepage, etc.)
     path('', include('shopco.urls')),
+    path('cart/', include('cart.urls', namespace='cart')),
     # Include all URLs from the 'item' app (for item-related pages)
     path('items/', include('item.urls')),
     # Include all URLs from the 'dashboard' app (user dashboard, profile, etc.)
@@ -44,3 +45,4 @@ urlpatterns = [
 ] 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
