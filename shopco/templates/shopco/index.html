@@ -118,14 +118,14 @@
 </section>
 
 <!-- CATEGORIES -->
-<section class="section-two container-two">
+<section class="sectionTwo containerTwo">
     <h2>Categories</h2>
-    <div class="products-section">
+    <div class="products-Section">
         {% for category in categories %}
         <div>
-            <a href="#">
+            <a href="{% url 'item:items' %}">
                 <p>{{ category.name }}</p>
-                <p class="text-gray-500">{{ category.items.count }} items</p>
+                <p class="text-gray-500">{{ category.items.count }} Items</p>
             </a>
         </div>
         {% endfor %}

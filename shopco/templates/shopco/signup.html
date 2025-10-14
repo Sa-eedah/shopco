@@ -39,7 +39,9 @@
         </div>
         {% endif %}
 
-        <button type="submit" class="submit-btn">Submit</button>
+        <div class="shop-now viewbtn">
+            <button class="shopnow"><a href="{% url 'item:items' %}">Submit</a></button>
+        </div>
     </form>
 </div>
 {% endblock %}
