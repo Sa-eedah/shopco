@@ -19,26 +19,25 @@
                     <strong>Description:</strong><br>
                     {{ item.description }} 
                 </p>
-                <form method="POST" action="{% url 'cart:add_to_cart' item.id %}">
+                {% comment %} <form method="POST" action="{% url 'cart:add_to_cart' item.id %}">
                     {% csrf_token %}
                     <button class="add-to-cart-btn">Add to Cart</button>
-                </form> 
+                </form>  {% endcomment %}
             {% endif %}
 
             {% if request.user == item.created_by %}
                 <div class="owner-section">
                     <p>This is your item!</p>
-
                     <a href="{% url 'item:edit' item.id %}" class="btn edit-btn">Edit</a>
-                    <a href="{% url 'item:delete' item.id %}" class="btn delete-btn">Delete</a>
-                    {% comment %} <form method="POST" action="{% url 'cart:add_to_cart' item.id %}">
+                    <a href="{% url 'item:delete' item.id %}" class="btn delete-btn">Delete</a> 
+                {% comment %} <form method="POST" action="{% url 'cart:add_to_cart' item.id %}">
                         {% csrf_token %}
-                        <button class="add-to-cart-btn">Add to Cart</button>
-                    </form>   {% endcomment %}
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </form>  {% endcomment %}
                 </div>
             {% else %}
                 <a href="{% url 'conversation:new' item.id %}" class="btn contact-btn">Contact Seller</a>
-            {% endif %} 
+            {% endif %}  
         </div>
     </div>
 
