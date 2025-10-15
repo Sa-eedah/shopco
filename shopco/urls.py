@@ -27,4 +27,5 @@ urlpatterns = [
     # Accessible as {% url 'core:login' %} in templates
     path('login/', auth_views.LoginView.as_view(template_name='shopco/login.html',authentication_form=LoginForm), name='login'), # Custom template for login page
     # Custom form class for authentication
+    path('reviews/', views.customer_reviews, name='customer_reviews'),
 ]

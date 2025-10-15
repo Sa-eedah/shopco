@@ -7,7 +7,7 @@ $(document).ready(function(){
         arrows: false,
       });
 
-      $('.testamonials').slick({
+      $('.reviews').slick({
         slidesToShow: 3,
         slidesToScroll: 3,
         infinite: true,
@@ -16,8 +16,4 @@ $(document).ready(function(){
         nextArrow:$(".arrowleft"),
 
       });
-
-      $("#accordion").accordion({
-        collapsible: true
-    }); 
 });

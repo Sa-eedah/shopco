@@ -1,7 +1,7 @@
 {% extends 'shopco/base.html' %}
 {% load static %}
 
-{% block title %} {{ item.name }} {% endblock %}
+{% block title %}{{ item.name }}{% endblock %}
 
 {% block content %}
 <div class="detail-container">
@@ -14,30 +14,27 @@
             <h1>{{ item.name }}</h1>
             <p><strong>Price:</strong> {{ item.price }}</p>
             <p><strong>Seller:</strong> {{ item.created_by.username }}</p>
+
             {% if item.description %}
                 <p class="description">
                     <strong>Description:</strong><br>
-                    {{ item.description }} 
+                    {{ item.description }}
                 </p>
-                {% comment %} <form method="POST" action="{% url 'cart:add_to_cart' item.id %}">
-                    {% csrf_token %}
-                    <button class="add-to-cart-btn">Add to Cart</button>
-                </form>  {% endcomment %}
             {% endif %}
 
-            {% if request.user == item.created_by %}
-                <div class="owner-section">
-                    <p>This is your item!</p>
-                    <a href="{% url 'item:edit' item.id %}" class="btn edit-btn">Edit</a>
-                    <a href="{% url 'item:delete' item.id %}" class="btn delete-btn">Delete</a> 
-                {% comment %} <form method="POST" action="{% url 'cart:add_to_cart' item.id %}">
-                        {% csrf_token %}
+            {% if request.user != item.created_by %}
+                <!-- Buyer sees Add to Cart -->
+                <form method="POST" action="{% url 'cart:add_to_cart' item.id %}">
+                    {% csrf_token %}
                     <button class="add-to-cart-btn">Add to Cart</button>
-                </form>  {% endcomment %}
-                </div>
+                </form>
             {% else %}
-                <a href="{% url 'conversation:new' item.id %}" class="btn contact-btn">Contact Seller</a>
-            {% endif %}  
+                <!-- Seller sees Edit/Delete -->
+                <div class="seller-actions">
+                    <a href="{% url 'item:edit' item.id %}" class="btn delete-btn">Edit Item</a>
+                    <a href="{% url 'item:delete' item.id %}" class="btn delete-btn">Delete Item</a>
+                </div>
+            {% endif %}
         </div>
     </div>
 
@@ -61,5 +58,4 @@
         </div>
     </div>
 </div>
-
 {% endblock %}

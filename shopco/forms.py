@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 # Import Django's built-in forms for user creation and authentication
 from django.contrib.auth.models import User
 # Import Django's default User model
+from .models import Review
 
 class LoginForm(AuthenticationForm):
     # Custom login form that extends Django's built-in AuthenticationForm
@@ -44,3 +45,13 @@ class SignupForm(UserCreationForm):
         'placeholder':'Repeat Password', # Hint text for password2
         'class': 'form-group',# CSS styling classes
     }))
+    
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ['name', 'text']
+        widgets = {
+            'name': forms.TextInput(attrs={'placeholder': 'Your name', 'class': 'input-field'}),
+            'text': forms.Textarea(attrs={'placeholder': 'Write your review...', 'class': 'textarea-field'}),
+        }
+

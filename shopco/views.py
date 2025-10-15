@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
-
 from item.models import Category, Item # Import models from the item app
-
-from .forms import SignupForm # Import the custom signup for
+from .forms import SignupForm, ReviewForm # Import the custom signup for
+from .models import Review
 
 # Create your views here.
 """Homepage"""
@@ -11,12 +10,24 @@ def index(request):
     new_arrivals = Item.objects.all().order_by('-created_at')[:4]
     top_selling = Item.objects.all().order_by('-created_at')[:4]
     categories = Category.objects.all()
+    reviews = Review.objects.all()
+    form = ReviewForm()
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('shopco:index')  # or your homepage URL name
 
     return render(request, 'shopco/index.html', {
         'new_arrivals': new_arrivals,
         'top_selling': top_selling,
         'categories': categories,
-    })
+        'reviews': reviews,
+        'form': form
+
+})
+
 
 # View for the contact page
 def contact(request):
@@ -42,3 +53,16 @@ def signup(request):
     return render(request, 'shopco/signup.html', {
         'form':form
     })
+
+def customer_reviews(request):
+    reviews = Review.objects.all()  # Make sure there are reviews in the DB
+    form = ReviewForm()
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('shopco:customer_reviews')
+
+    return render(request, 'shopco/reviews.html', {'reviews': reviews, 'form': form})
+

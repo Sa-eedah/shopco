@@ -512,51 +512,98 @@ a.browse:hover {
     left:10%; 
 }
 
-/* Section Five */
+/* Reviews Section*/
 
-.slider-sectionTwo {
-    position: relative;
-    margin-bottom: 170px;
+.reviews-section {
+    padding: 60px 0;
+    background: var(--color-lightgrey);
+    text-align: center;
 }
 
-.slider-sectionTwo h2 { 
+.reviews-header h2 {
+    margin-bottom: 40px;
+    text-align: center;  
     font-family: "Integral CF";
     font-weight: bold;
     font-size: 48px;
-    margin-bottom: 68px;
 }
 
-.flexthree {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+.reviews-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 3fr));
+    gap: 25px;
+    margin-bottom: 40px;
 }
 
-.slider-sectionTwo .item {
-    max-width: 100%;
-    height: 240px;
-    padding: 28px 32px;
-    border-radius: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.175);
-    margin-right: 12px;
-    margin-left: 12px;   
+.review-card {
+    background-color: var(--color-lightgrey);
+    border: 1px solid var(--color-grey);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
 }
 
-.slider-sectionTwo .item h3 {
-    font-family:"satoshi";
-    font-weight: bold;
-    font-size: 20px;
+.review-card:hover {
+    transform: translateY(-5px);
 }
 
-.testamonials .item h3::after{
-    content: url(../images/greentick.png);
-    vertical-align: sub;
+.review-avatar {
+    margin-bottom: 15px;
 }
-.testamonials .item p {
-    color: var(--color-grey);
-    font-family: "satoshi";
-    line-height: 22px;
+
+.review-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
 }
+
+.review-card p {
+    color: #333;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.review-date {
+    font-size: 12px;
+    color: #888;
+}
+
+.review-form-box {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.review-form-box h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.input-field, .textarea-field {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    background: black;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #333;
+}
+
 
 /* ===========================
    SIGN UP & LOG IN PAGES
@@ -728,8 +775,8 @@ a.browse:hover {
 
 /* Individual category card */
 .products-Section div {
-    background-color: #f5f5f5; /* soft gray background */
-    border: 1px solid #d1d1d1;
+    background-color: var(--color-white); /* soft gray background */
+    border: 1px solid var(--color-grey);
     border-radius: 12px;
     padding: 25px;
     width: 100%;
@@ -743,6 +790,7 @@ a.browse:hover {
     background-color: #000; /* black on hover */
     transform: translateY(-5px);
 }
+
 
 .products-Section div:hover p {
     color: #fff; /* switch text color on hover */
@@ -2961,4 +3009,145 @@ input[type="email"]::placeholder {
 
 .bank img {
     margin-left: 10px;
+}
+/* ===========================
+   REVIEWS SECTION
+=========================== */
+.review-btn-box {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.review-btn {
+    background-color: #000;
+    color: #fff;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.review-btn:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+}
+
+/* Modal Styling */
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 80px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.modal-content h3 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+
+.input-field, .textarea-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 12px 0;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #333;
+}
+
+.cart-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+.cart-table th, .cart-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-table th {
+    background-color: #f4f4f4;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.remove {
+    background-color: black;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.remove:hover {
+    background-color: #333;
+}
+
+.cart-total {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.checkout-btn {
+    background-color: black;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.checkout-btn:hover {
+    background-color: #333;
 }
