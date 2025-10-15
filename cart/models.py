@@ -1,8 +1,7 @@
-# cart/models.py
 from django.db import models
 from django.contrib.auth.models import User
 from item.models import Item
-
+# Create your models here.
 class Cart(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
 
@@ -27,4 +26,4 @@ class CartItem(models.Model):
         return self.quantity * self.item.price
 
 
-# Create your models here.
+
