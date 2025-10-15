@@ -5,6 +5,8 @@ from django.shortcuts import render,get_object_or_404, redirect
 # Import custom forms and models from this app
 from .forms import NewItemForm, EditItemForm
 from  .models import Category, Item
+from shopco.forms import ReviewForm
+from shopco.models import Review
 
 """To restrict access to logged-in users 
    To perform complex queries (OR, AND)
@@ -121,3 +123,24 @@ def delete(request, pk):
 # Redirect back to the user’s dashboard after deletion
     return redirect('dashboard:index')
 
+def item_detail(request, pk):
+    item = get_object_or_404(Item, pk=pk)
+    reviews = item.reviews.all()
+    form = ReviewForm()
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.item = item
+            if request.user.is_authenticated:
+                review.user = request.user
+            review.save()
+            return redirect('item:detail', pk=item.pk)
+
+    context = {
+        'item': item,
+        'reviews': reviews,
+        'form': form
+    }
+    return render(request, 'item/detail.html', context)

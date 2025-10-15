@@ -6,6 +6,7 @@
 {% block content %}
 <div class="dashboard-container">
     <section class="dashboard-section">
+        <h2>My Dashboard</h2>
         <h2>My Items</h2>
 
         <div class="item-grid">
@@ -18,6 +19,11 @@
                         <div class="item-info">
                             <h3>{{ item.name }}</h3>
                             <p>Price: {{ item.price }}</p>
+                        </div>
+                        <div class="owner-section">
+                            <p>This is your item!</p>
+                            <a href="{% url 'item:edit' item.id %}" class="btn edit-btn">Edit</a>
+                            <a href="{% url 'item:delete' item.id %}" class="btn delete-btn">Delete</a> 
                         </div>
                     </a>
                 </div>

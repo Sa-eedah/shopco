@@ -8,7 +8,7 @@
 <section class="section-one container-two">
     <div class="leftside-one">
         <div class="heading-section">
-            <h1>FIND CLOTHES THAT MATCH YOUR STYLE</h1>
+            <h1>FIND CLOTHES THAT MATCHES YOUR STYLE</h1>
             <p>Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</p>
             <div class="shop-now">
                 <button class="shopnow"><a href="{% url 'item:items' %}">Shop Now</a></button>
@@ -68,6 +68,11 @@
                         <span class="sale">-{{ item.discount_percentage }}%</span>
                         {% endif %}
                     </p>
+                     {% comment %} <!-- Add to Cart Button -->
+        <form method="POST" action="{% url 'cart:add_to_cart' item.id %}">
+            {% csrf_token %}
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </form> {% endcomment %}
                 </div>
             </a>
         </div>
@@ -94,10 +99,14 @@
                         ${{ item.price }}
                         {% if item.discount_price %}
                         <s>${{ item.original_price }}</s>
-                        {% comment %} <span class="sale">-20&#37;</span> {% endcomment %}
                         <span class="sale">-{{ item.discount_percentage }}%</span>
                         {% endif %}
                     </p>
+
+                    {% comment %} <form method="POST" action="{% url 'cart:add_to_cart' item.id %}">
+                        {% csrf_token %}
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </form> {% endcomment %}
                 </div>
             </a>
         </div>
@@ -109,14 +118,14 @@
 </section>
 
 <!-- CATEGORIES -->
-<section class="section-two container-two">
+<section class="sectionTwo containerTwo">
     <h2>Categories</h2>
-    <div class="products-section">
+    <div class="products-Section">
         {% for category in categories %}
         <div>
-            <a href="#">
+            <a href="{% url 'item:items' %}">
                 <p>{{ category.name }}</p>
-                <p class="text-gray-500">{{ category.items.count }} items</p>
+                <p class="text-gray-500">{{ category.items.count }} Items</p>
             </a>
         </div>
         {% endfor %}
@@ -127,52 +136,57 @@
     <h2>BROWSE BY DRESS STYLE</h2>
     <div class="flex">
         <div class="casual">
-            <a href="#"><img src="{% static 'shopco/images/casual.png' %}" alt="Casual"></a>
+            <a href="{% url 'item:items' %}"><img src="{% static 'shopco/images/casual.png' %}" alt="Casual"></a>
             <div class="centered">Casual</div>
         </div>
 
         <div class="formal">
-            <a href="#"><img src="{% static 'shopco/images/formal.png' %}" alt="Formal"></a>
+            <a href="{% url 'item:items' %}"><img src="{% static 'shopco/images/formal.png' %}" alt="Formal"></a>
             <div class="centered">Formal</div>
         </div>
 
         <div class="party">
-            <a href="#"><img src="{% static 'shopco/images/party.png' %}" alt="Party"></a>
+            <a href="{% url 'item:items' %}"><img src="{% static 'shopco/images/party.png' %}" alt="Party"></a>
             <div class="center">Party</div>
         </div>
 
         <div class="gym">
-            <a href="#"><img src="{% static 'shopco/images/gym.png' %}" alt="Gym"></a>
+            <a href="{% url 'item:items' %}"><img src="{% static 'shopco/images/gym.png' %}" alt="Gym"></a>
             <div class="centerone">Gym</div>
         </div>
     </div>
 </section>
-
-<!-- Testimonials -->
-<section class="slider-sectionTwo container-two">
-    <div class="flexthree">
+{% comment %} Reviews Section {% endcomment %}
+<section class="reviews-section container-two">
+    <div class="reviews-header">
         <h2>OUR HAPPY CUSTOMERS</h2>
-        <div class="arrows">
-            <span class="arrowleft"><img src="{% static 'shopco/images/arrow-down-bold 2.png' %}" alt="arrowleft"></span>
-            <span class="arrowright"><img src="{% static 'shopco/images/arrow-down-bold 1.png' %}" alt="arrowright"></span>
-        </div>
     </div>
-    <div class="testamonials">
-        <div class="item">
-            <img src="{% static 'shopco/images/frame10.png' %}" alt="frame10">
-            <h3>Sarah M.</h3>
-            <p>"I'm blown away by the quality and style of the clothes I received from Shop.co."</p>
-        </div>
-        <div class="item">
-            <img src="{% static 'shopco/images/frame10.png' %}" alt="frame10">
-            <h3>Alex K.</h3>
-            <p>"Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co."</p>
-        </div>
-        <div class="item">
-            <img src="{% static 'shopco/images/frame10.png' %}" alt="frame10">
-            <h3>James L.</h3>
-            <p>"As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co."</p>
-        </div>
+
+    <!-- Reviews list -->
+    <div class="reviews-list">
+        {% for review in reviews %}
+            <div class="review-card">
+                <img src="{% static 'shopco/images/frame10.png' %}" alt="Review image" class="review-avatar">
+                <h3>{{ review.name }}</h3>
+                <p>"{{ review.text }}"</p>
+                <span class="review-date">{{ review.created_at|date:"M d, Y" }}</span>
+            </div>
+        {% empty %}
+            <p class="no-items">No reviews yet. Be the first to leave one!</p>
+        {% endfor %}
+    </div>
+
+    <!-- Review form -->
+    <div class="review-form-box">
+        <h3>Leave a Review</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="submit-btn">Submit Review</button>
+        </form>
     </div>
 </section>
 {% endblock%}
+
+{% comment %} In order to view dashboard please login in admin and also logout there 
+also you must be logged in to go into the cart. And this must also be via admin{% endcomment %}

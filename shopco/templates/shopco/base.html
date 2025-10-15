@@ -35,22 +35,22 @@
                         <li><a href="{% url 'item:items' %}">Shop<img src="{% static 'shopco/images/downarrow.png' %}" alt="downarrow"></a></li>
                         <li><a href="#">On Sale</a></li>
                         <li><a href="#">New Arrivals</a></li>
-                        <li><a href="#">Brands</a></li>
+                        <li><a href="{% url 'cart:view_cart' %}">Cart</a></li>
                     </ul>
                 </nav>
             </div>
 
             <nav class"main-shop">
                 <div class="space-x-6">
-                    <a href="{% url 'item:new' %}" class="text-lg font-semibold hover:text-gray-500">New Item</a>
-                    <a href="{% url 'item:items' %}" class="text-lg font-semibold hover:text-gray-500">Browse</a>
+                    <a href="{% url 'item:new' %}" class="new-item">New Item</a>
+                    <a href="{% url 'item:items' %}" class="browse">Browse</a>
         
                     {% if request.user.is_authenticated %}
-                        <a href="{% url 'conversation:inbox' %}" class="inbox px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700">Inbox</a>
-                        <a href="{% url 'dashboard:index' %}" class="dashboard px-6 py-3 text-lg font-semibold bg-gray-500 text-white rounded-xl hover:bg-gray-700">Dashboard</a>
+                        <a href="{% url 'conversation:inbox' %}" class="inbox">Inbox</a>
+                        <a href="{% url 'dashboard:index' %}" class="dashboard">Dashboard</a>
                     {% else %}
-                        <a href="{% url 'shopco:signup' %}" class="signupbtn px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700">Sign Up</a>
-                        <a href="{% url 'shopco:login' %}" class="loginbtn px-6 py-3 text-lg font-semibold bg-gray-500 text-white rounded-xl hover:bg-gray-700">Log in</a>
+                        <a href="{% url 'shopco:signup' %}" class="signupbtn">Sign Up</a>
+                        <a href="{% url 'shopco:login' %}" class="loginbtn">Log in</a>
                     {% endif %}
                 </div>
             </nav>
@@ -161,12 +161,10 @@
     </div>
 </div>
 
-
 <!-- External libraries: keep as-is -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
-
-
 <script src="{% static 'shopco/resources/slick-1.8.1/slick/slick.min.js' %}"></script>
 <script src="{% static 'shopco/scripts/script.js' %}"></script>
+<script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+
 </html>
