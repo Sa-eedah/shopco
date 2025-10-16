@@ -55,7 +55,7 @@
         {% for item in new_arrivals %}
         <div class="products">
             <a href="{% url 'item:detail' item.id %}">
-                <img src="{{ item.image.url }}" alt="{{ item.name }}">
+                <img src="{{ item.image.url }}" alt="{{ item.name }}" class="product_img">
                 <div class="p-4">
                     <p>{{ item.name }}</p>
                     <img class="stars" src="{% static 'shopco/images/stars-4.5.png' %}" alt="tape">

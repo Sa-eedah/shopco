@@ -33,8 +33,8 @@
                 <nav class="navigation">
                     <ul>
                         <li><a href="{% url 'item:items' %}">Shop<img src="{% static 'shopco/images/downarrow.png' %}" alt="downarrow"></a></li>
-                        <li><a href="#">On Sale</a></li>
-                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="{% url 'item:items' %}">On Sale</a></li>
+                        <li><a href="{% url 'item:items' %}">New Arrivals</a></li>
                         <li><a href="{% url 'cart:view_cart' %}">Cart</a></li>
                     </ul>
                 </nav>

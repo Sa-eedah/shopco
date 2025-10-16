@@ -302,6 +302,7 @@ a.browse:hover {
     display: flex;
     justify-content: center;
     gap: 20px; 
+    justify-content: space-between;
 }
 
 .section-two h2{
@@ -456,7 +457,8 @@ a.browse:hover {
 }
 
 .section-four img {
-     border-radius:20px;
+    border-radius:20px;
+
 }
 
 .section-four .flex {
@@ -617,7 +619,7 @@ a.browse:hover {
     justify-content: center;
     min-height: 80vh;
     background-color: #fff;
-    padding: 60px 20px;
+    padding: 40px 10px;
 }
 
 /* Page titles */
@@ -626,7 +628,7 @@ a.browse:hover {
     font-size: 2rem;
     font-weight: 700;
     color: #000;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     letter-spacing: 1px;
     text-transform: uppercase;
 }
@@ -637,15 +639,15 @@ a.browse:hover {
     background-color: #f8f8f8;
     border: 1px solid #d1d1d1;
     border-radius: 16px;
-    padding: 40px 50px;
-    width: 100%;
-    max-width: 420px;
+    padding: 10px 25px; 
+    width: 50%; 
+    max-width: 350px; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 /* Each form field */
 .form-group {
-    margin-bottom: 25px;
+    /* margin-bottom: 25px; */
     text-align: left;
 }
 
@@ -654,8 +656,9 @@ a.browse:hover {
     display: block;
     font-size: 0.95rem;
     font-weight: 600;
-    color: #000;
-    margin-bottom: 8px;
+    color: var(--color-black);
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 /* Input fields */
@@ -2251,10 +2254,11 @@ Responsive Design
 
 /* Image Section */
 .detail-image img {
-    width: 100%;
+    width: 70%;
     border-radius: 10px;
     border: 1px solid var(--color-lightgrey);
 }
+
 
 /* Info Section */
 .detail-info {
