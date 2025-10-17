@@ -19,9 +19,6 @@ Including another URLconf
     Import Django admin site
     Import functions for defining URL patterns
     The main list of URL patterns for the project
-
-
-
 """
 from django.conf import settings
 from django.conf.urls.static import static
@@ -42,8 +39,6 @@ urlpatterns = [
     # Django’s built-in admin panel (accessible at /admin/)
     path('admin/', admin.site.urls),
 # Serve uploaded media files (like images) during development
-    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),  # <-- logout
 # This will map MEDIA_URL (e.g., '/media/') to MEDIA_ROOT (where files are stored)
 ] 
 if settings.DEBUG:
